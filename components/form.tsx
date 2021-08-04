@@ -164,7 +164,7 @@ export const Form: FunctionComponent<FormProps> = ({
         <div className="flex justify-center items-center py-3">
           <input
             type="submit"
-            className="relative cursor-pointer z-10 px-6 px-4 py-2 font-bold text-white bg-pink-500 border-b-4 border-pink-700 rounded hover:bg-pink-600 hover:border-pink-700 "
+            className="relative cursor-pointer z-10 px-4 py-2 font-bold text-white bg-pink-500 border-b-4 border-pink-700 rounded hover:bg-pink-600 hover:border-pink-700 "
           />
         </div>
       </form>
