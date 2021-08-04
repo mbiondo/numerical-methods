@@ -1,5 +1,6 @@
 import { FunctionComponent, useState } from 'react'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 import Geogebra from 'react-geogebra'
 import { v4 as uuidv4 } from 'uuid'
 import { Form, FormFields } from '../components/form'
@@ -21,7 +22,13 @@ import {
   EvaluateFixedPointResult,
   FixedPointMethod
 } from '../lib/fixed-point-method'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+
+import { Tab, TabList, TabPanel, TabsProps } from 'react-tabs'
+const Tabs = dynamic<TabsProps>(
+  import('react-tabs').then(mod => mod.Tabs),
+  { ssr: false }
+)
+
 import 'react-tabs/style/react-tabs.css'
 
 declare global {
@@ -148,15 +155,15 @@ const Playground: FunctionComponent = () => {
       />
       <Tabs>
         <TabList>
-          <Tab>Vista general</Tab>
-          <Tab>Biseccion</Tab>
-          <Tab>Punto fijo</Tab>
-          <Tab>Newton Raphson</Tab>
-          <Tab>Secante</Tab>
-          <Tab>Posición Falsa</Tab>
+          <Tab key={1}>Vista general</Tab>
+          <Tab key={2}>Biseccion</Tab>
+          <Tab key={3}>Punto fijo</Tab>
+          <Tab key={4}>Newton Raphson</Tab>
+          <Tab key={5}>Secante</Tab>
+          <Tab key={6}>Posición Falsa</Tab>
         </TabList>
 
-        <TabPanel>
+        <TabPanel key={1}>
           <Table
             items={methodResultList.sort((a: MethodResult, b: MethodResult) =>
               a.iterations > b.iterations ? 1 : -1
@@ -164,25 +171,25 @@ const Playground: FunctionComponent = () => {
             columns={methodCompareColumns}
           />
         </TabPanel>
-        <TabPanel>
+        <TabPanel key={2}>
           <Table items={bisectionResult.trace} columns={genericResultColumn} />
         </TabPanel>
-        <TabPanel>
+        <TabPanel key={3}>
           <Table
             items={fixedPointResult.trace}
             columns={newtonRaphsonColumns}
           />
         </TabPanel>
-        <TabPanel>
+        <TabPanel key={4}>
           <Table
             items={newtonRaphsonResult.trace}
             columns={newtonRaphsonColumns}
           />
         </TabPanel>
-        <TabPanel>
+        <TabPanel key={5}>
           <Table items={secantResult.trace} columns={genericResultColumn} />
         </TabPanel>
-        <TabPanel>
+        <TabPanel key={6}>
           <Table
             items={falsePositionResult.trace}
             columns={genericResultColumn}
@@ -191,7 +198,7 @@ const Playground: FunctionComponent = () => {
       </Tabs>
 
       <Geogebra
-        id={uuidv4()}
+        id={'geogebra-applet'}
         showMenuBar={false}
         showToolBar={false}
         showAlgebraInput={false}

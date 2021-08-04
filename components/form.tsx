@@ -136,7 +136,7 @@ export const Form: FunctionComponent<FormProps> = ({
         <div className="grid md:grid-cols-2 gap-4">
           <fieldset className="py-2 flex flex-col items-center">
             <label htmlFor="fAprox">
-              <TeX>{`Primer`}</TeX> <TeX>{`aproximación`}</TeX>
+              <TeX>{`Primer`}</TeX> <TeX>{`aproximacion`}</TeX>
             </label>
             <input
               id="fAprox"
@@ -149,7 +149,7 @@ export const Form: FunctionComponent<FormProps> = ({
           </fieldset>
           <fieldset className="py-2 flex flex-col items-center">
             <label htmlFor="sAprox">
-              <TeX>{`Segunda`}</TeX> <TeX>{`aproximación`}</TeX>
+              <TeX>{`Segunda`}</TeX> <TeX>{`aproximacion`}</TeX>
             </label>
             <input
               id="sAprox"

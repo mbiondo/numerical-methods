@@ -13,3 +13,16 @@ html {
 .table-of-contents a {
   text-decoration: none;
 }
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(26, 32, 44, 10);
+  opacity: 0.5;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(131, 24, 67, 900);
+}
