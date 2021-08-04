@@ -1,0 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+.table-of-contents {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+.table-of-contents .toc-sticky-container {
+  position: sticky;
+  top: 3rem;
+}
+
+.table-of-contents a {
+  text-decoration: none;
+}

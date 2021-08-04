@@ -1,4 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Numerical integration suite.
+
+# Roots finding
+
+### Implemented Methods
+
+- Bisection method
+- Fixed Point iteration
+- Newton-Raphson method
+- Secant method
+- False position method
+
+### Implemented Methods
+
+- Simpson rule's
+
+# Polynomial interpolation
+
+### Implemented Methods
+
+- Hermite interpolation
+
+# Dev
 
 ## Getting Started
 
