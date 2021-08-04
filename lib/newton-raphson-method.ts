@@ -6,7 +6,7 @@ export interface Trace {
   index: number
 }
 
-export interface EvaluateNewthonRaphsonResult {
+export interface EvaluateNewtonRaphsonResult {
   result: number
   iterations: number
   err: number
@@ -17,16 +17,16 @@ export interface EvaluateNewthonRaphsonResult {
   rawDEquation: string
 }
 
-export interface NewthonRaphsonParams {
+export interface NewtonRaphsonParams {
   equation: string
   initial: number
   tolerate: number
   maxIterations: number
 }
 
-export const NewthonRaphsonMethod = (
-  params: NewthonRaphsonParams
-): EvaluateNewthonRaphsonResult => {
+export const NewtonRaphsonMethod = (
+  params: NewtonRaphsonParams
+): EvaluateNewtonRaphsonResult => {
   const trace: Array<Trace> = []
   const equation: MathNode = parse(params.equation)
   const equationD: MathNode = derivative(equation, 'x')

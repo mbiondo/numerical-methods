@@ -14,8 +14,8 @@ import {
   FalsePositionMethod
 } from '../lib/false-position-method'
 import {
-  EvaluateNewthonRaphsonResult,
-  NewthonRaphsonMethod
+  EvaluateNewtonRaphsonResult,
+  NewtonRaphsonMethod
 } from '../lib/newton-raphson-method'
 import {
   EvaluateFixedPointResult,
@@ -55,7 +55,7 @@ const genericResultColumn = [
   { title: 'Error', accesor: 'err', isTex: true }
 ]
 
-const newthonRaphsonColumns = [
+const newtonRaphsonColumns = [
   { title: 'Iteracion', accesor: 'index', isTex: true },
   { title: 'p', accesor: 'p', isTex: true },
   { title: 'Error', accesor: 'err', isTex: true }
@@ -100,13 +100,12 @@ const Playground: FunctionComponent = () => {
     maxIterations: +evaluateParams.maxIterations
   })
 
-  const newthonRaphsonResult: EvaluateNewthonRaphsonResult =
-    NewthonRaphsonMethod({
-      equation: evaluateParams.equation,
-      maxIterations: +evaluateParams.maxIterations,
-      tolerate: +evaluateParams.tolerate,
-      initial: +evaluateParams.fAprox
-    })
+  const newtonRaphsonResult: EvaluateNewtonRaphsonResult = NewtonRaphsonMethod({
+    equation: evaluateParams.equation,
+    maxIterations: +evaluateParams.maxIterations,
+    tolerate: +evaluateParams.tolerate,
+    initial: +evaluateParams.fAprox
+  })
 
   const fixedPointResult: EvaluateFixedPointResult = FixedPointMethod({
     equation: evaluateParams.equation,
@@ -117,7 +116,7 @@ const Playground: FunctionComponent = () => {
   })
 
   methodResultList.push({ ...bisectionResult, name: 'Biseccion' })
-  methodResultList.push({ ...newthonRaphsonResult, name: 'Newthon Raphson' })
+  methodResultList.push({ ...newtonRaphsonResult, name: 'Newton Raphson' })
   methodResultList.push({ ...secantResult, name: 'Secante' })
   methodResultList.push({ ...falsePositionResult, name: 'Posición falsa' })
   methodResultList.push({ ...fixedPointResult, name: 'Punto fijo' })
@@ -152,7 +151,7 @@ const Playground: FunctionComponent = () => {
           <Tab>Vista general</Tab>
           <Tab>Biseccion</Tab>
           <Tab>Punto fijo</Tab>
-          <Tab>Newthon Raphson</Tab>
+          <Tab>Newton Raphson</Tab>
           <Tab>Secante</Tab>
           <Tab>Posición Falsa</Tab>
         </TabList>
@@ -171,13 +170,13 @@ const Playground: FunctionComponent = () => {
         <TabPanel>
           <Table
             items={fixedPointResult.trace}
-            columns={newthonRaphsonColumns}
+            columns={newtonRaphsonColumns}
           />
         </TabPanel>
         <TabPanel>
           <Table
-            items={newthonRaphsonResult.trace}
-            columns={newthonRaphsonColumns}
+            items={newtonRaphsonResult.trace}
+            columns={newtonRaphsonColumns}
           />
         </TabPanel>
         <TabPanel>
