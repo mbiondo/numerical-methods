@@ -16,13 +16,6 @@ export const Hero: FunctionComponent = () => {
         <ActiveLink
           className="sm:mx-2 my-2 border-b-2 hover:border-pink-600 hover:text-gray-400 transition-all duration-500 sm:p-0"
           activeClassName="border-pink-600 text-gray-400"
-          href="/methods/bisection"
-        >
-          Bisección
-        </ActiveLink>
-        <ActiveLink
-          className="sm:mx-2 my-2 border-b-2 hover:border-pink-600 hover:text-gray-400 transition-all duration-500 sm:p-0"
-          activeClassName="border-pink-600 text-gray-400"
           href="/playground"
         >
           Playground

@@ -29,7 +29,7 @@ const Methods: FunctionComponent<MethodsProps> = ({ slug }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async context => {
+export const getStaticProps: GetStaticProps = async () => {
   return { props: { slug: 'index' } }
 }
 
