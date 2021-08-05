@@ -7,6 +7,8 @@ import 'tailwindcss/tailwind.css'
 import 'katex/dist/katex.min.css'
 import '../styles/global.css'
 
+import { MDXProvider } from '@mdx-js/react'
+const mdComponents = {}
 const NumericalIntegration: FunctionComponent<AppProps> = ({
   Component,
   pageProps
@@ -19,7 +21,9 @@ const NumericalIntegration: FunctionComponent<AppProps> = ({
       </Head>
       <Hero />
       <main className="w-full min-h-full mx-auto py-10 flex flex-col justify-center items-center gap-10">
-        <Component {...pageProps} />
+        <MDXProvider components={mdComponents}>
+          <Component {...pageProps} />
+        </MDXProvider>
       </main>
       <Footer />
     </div>

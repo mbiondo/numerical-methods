@@ -2,26 +2,28 @@ import { FunctionComponent, useState } from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import Geogebra from 'react-geogebra'
-import { v4 as uuidv4 } from 'uuid'
 import { Form, FormFields } from '../components/form'
 import { Table } from '../components/ui/table'
 import {
   BisectionMethod,
   EvaluateBisectionResult
-} from '../lib/bisection-method'
-import { EvaluateSecantResult, SecantMethod } from '../lib/secant-method'
+} from '../lib/methods/bisection-method'
+import {
+  EvaluateSecantResult,
+  SecantMethod
+} from '../lib/methods/secant-method'
 import {
   EvaluateFalsePositionResult,
   FalsePositionMethod
-} from '../lib/false-position-method'
+} from '../lib/methods/false-position-method'
 import {
   EvaluateNewtonRaphsonResult,
   NewtonRaphsonMethod
-} from '../lib/newton-raphson-method'
+} from '../lib/methods/newton-raphson-method'
 import {
   EvaluateFixedPointResult,
   FixedPointMethod
-} from '../lib/fixed-point-method'
+} from '../lib/methods/fixed-point-method'
 
 import { Tab, TabList, TabPanel, TabsProps } from 'react-tabs'
 const Tabs = dynamic<TabsProps>(
