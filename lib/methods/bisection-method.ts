@@ -50,6 +50,11 @@ export const BisectionMethod = (
     const evalC: number = equation.evaluate({ x: c })
     const evalA: number = equation.evaluate({ x: a })
 
+    if (evalC === 0) {
+      err = 0
+      finded = true
+    }
+
     trace.push({
       a,
       b,
@@ -59,11 +64,6 @@ export const BisectionMethod = (
       err,
       index
     })
-
-    if (evalC === 0) {
-      err = 0
-      finded = true
-    }
 
     a = evalA * evalC > 0 ? c : a
     b = evalA * evalC < 0 ? c : b
