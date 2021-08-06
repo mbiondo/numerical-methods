@@ -15,14 +15,14 @@ html {
 }
 
 *::-webkit-scrollbar {
-  width: 5px;
+  width: 10px;
+  height: 10px;
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba(26, 32, 44, 10);
-  opacity: 0.5;
+  @apply bg-gray-200;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(131, 24, 67, 900);
+  @apply bg-pink-700;
 }

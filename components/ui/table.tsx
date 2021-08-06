@@ -32,12 +32,12 @@ export const Table: FunctionComponent<tableProps> = ({ items, columns }) => {
 
   return (
     <>
-      <div className="min-w-4xl max-w-4xl  overflow-x-auto ">
-        <table className="table-auto  w-full">
+      <div className="overflow-x-auto min-w-4xl ">
+        <table className="w-full table-fixed">
           <thead className="justify-between ">
-            <tr className="bg-pink-900 text-white" key={uuidv4()}>
+            <tr className="text-white bg-pink-900" key={uuidv4()}>
               {columns.map((column: Column) => (
-                <th className="p-3 text-center" key={uuidv4()}>
+                <th className="p-3 text-left" key={uuidv4()}>
                   {column.isTex ? (
                     <TeX>{column.title}</TeX>
                   ) : (
@@ -54,11 +54,11 @@ export const Table: FunctionComponent<tableProps> = ({ items, columns }) => {
                 return (
                   <tr
                     key={uuidv4()}
-                    className="border-b border-gray-900 text-right"
+                    className="text-left border-b border-gray-900"
                   >
                     {columns.map((column: Column) => (
-                      <td className="p-3 py-2" key={uuidv4()}>
-                        <span className="font-bold">
+                      <td className="p-3 py-2 truncate" key={uuidv4()}>
+                        <span className="">
                           {item[column.accesor]}
                         </span>
                       </td>
@@ -69,26 +69,26 @@ export const Table: FunctionComponent<tableProps> = ({ items, columns }) => {
           </tbody>
         </table>
         {totalPages > 1 ? (
-          <div className="w-full py-5 grid grid-rows-2 justify-end">
+          <div className="grid justify-end w-full grid-rows-2 py-5">
             <span className="text-xs xs:text-sm text-white-900">
               Showing {perPage * (page - 1) + 1} to{' '}
               {perPage * page > items.length ? items.length : perPage * page} of{' '}
               {items.length} entries
             </span>
-            <div className="grid grid-cols-2 gap-2 justify-center">
+            <div className="grid justify-center grid-cols-2 gap-2">
               <button
                 onClick={() => {
                   setPage(page - 1)
                 }}
                 disabled={!havePrev()}
-                className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l"
+                className="px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-l hover:bg-gray-400"
               >
                 Prev
               </button>
               <button
                 onClick={() => setPage(page + 1)}
                 disabled={!haveNext()}
-                className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r"
+                className="px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-r hover:bg-gray-400"
               >
                 Next
               </button>

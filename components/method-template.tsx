@@ -63,16 +63,16 @@ export const MethodTemplate: FunctionComponent = ({ children }) => {
 
   return (
     <>
-      <article className="flex flex-row gap-20 px-5 lg:px-0" ref={ref}>
-        <aside className="table-of-contents hidden lg:block">
+      <article className="flex flex-row gap-20 px-5 pt-6 lg:px-0" ref={ref}>
+        <aside className="hidden table-of-contents lg:block">
           <div className="toc-sticky-container">
-            <h3 className="text-2xl py-2" id="table-of-contents">
+            <h3 className="py-2 text-2xl" id="table-of-contents">
               Tabla de contenido
             </h3>
-            <ul className="list-none w-full">
+            <ul className="w-full list-none">
               {headings.map(heading => (
-                <li key={`heading-${heading.href}`} className="py-2 w-full">
-                  <a href={heading.href} className="px-2 py-2 min-w-full">
+                <li key={`heading-${heading.href}`} className="w-full py-2">
+                  <a href={heading.href} className="min-w-full px-2 py-2">
                     {heading.label}
                   </a>
                 </li>
@@ -80,7 +80,9 @@ export const MethodTemplate: FunctionComponent = ({ children }) => {
             </ul>
           </div>
         </aside>
-        <div className="prose lg:prose-xl post-content">{children}</div>
+        <div className="p-6 bg-white shadow">
+          <div className="prose lg:prose-xl post-content">{children}</div>
+        </div>
       </article>
     </>
   )

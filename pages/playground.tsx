@@ -149,67 +149,78 @@ const Playground: FunctionComponent = () => {
         <title>Method's Playground</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Form
-        {...evaluateParams}
-        submitHandler={(data: FormFields) => {
-          setEvaluateParams(data)
-        }}
-      />
-      <Tabs>
-        <TabList>
-          <Tab key={1}>Vista general</Tab>
-          <Tab key={2}>Biseccion</Tab>
-          <Tab key={3}>Punto fijo</Tab>
-          <Tab key={4}>Newton Raphson</Tab>
-          <Tab key={5}>Secante</Tab>
-          <Tab key={6}>Posición Falsa</Tab>
-        </TabList>
+      <div className="grid w-full pt-6 pl-6 lg:grid-cols-4">
+        <div className="pt-2 bg-white lg:max-w-lg">
+          <Form
+            {...evaluateParams}
+            submitHandler={(data: FormFields) => {
+              setEvaluateParams(data)
+            }}
+          />
+        </div>
+        <div className="pt-0 lg:col-span-3">
+          <div className="flex justify-center mb-6">
+            <Geogebra
+              id={'geogebra-applet'}
+              height={400}
+              width={1200}
+              showMenuBar={false}
+              showToolBar={false}
+              showAlgebraInput={false}
+              appletOnLoad={() => {
+                return ''
+              }}
+              onReady={geogebraReadyHandler}
+              LoadComponent={() => <h1>Loading</h1>}
+            />
+          </div>
+          <div className="px-6">
+          <Tabs>
+            <TabList>
+              <Tab key={1}>Vista general</Tab>
+              <Tab key={2}>Biseccion</Tab>
+              <Tab key={3}>Punto fijo</Tab>
+              <Tab key={4}>Newton Raphson</Tab>
+              <Tab key={5}>Secante</Tab>
+              <Tab key={6}>Posición Falsa</Tab>
+            </TabList>
 
-        <TabPanel key={1}>
-          <Table
-            items={methodResultList.sort((a: MethodResult, b: MethodResult) =>
-              a.iterations > b.iterations ? 1 : -1
-            )}
-            columns={methodCompareColumns}
-          />
-        </TabPanel>
-        <TabPanel key={2}>
-          <Table items={bisectionResult.trace} columns={genericResultColumn} />
-        </TabPanel>
-        <TabPanel key={3}>
-          <Table
-            items={fixedPointResult.trace}
-            columns={newtonRaphsonColumns}
-          />
-        </TabPanel>
-        <TabPanel key={4}>
-          <Table
-            items={newtonRaphsonResult.trace}
-            columns={newtonRaphsonColumns}
-          />
-        </TabPanel>
-        <TabPanel key={5}>
-          <Table items={secantResult.trace} columns={genericResultColumn} />
-        </TabPanel>
-        <TabPanel key={6}>
-          <Table
-            items={falsePositionResult.trace}
-            columns={genericResultColumn}
-          />
-        </TabPanel>
-      </Tabs>
-
-      <Geogebra
-        id={'geogebra-applet'}
-        showMenuBar={false}
-        showToolBar={false}
-        showAlgebraInput={false}
-        appletOnLoad={() => {
-          return ''
-        }}
-        onReady={geogebraReadyHandler}
-        LoadComponent={() => <h1>Loading</h1>}
-      />
+            <TabPanel key={1}>
+              <Table
+                items={methodResultList.sort((a: MethodResult, b: MethodResult) =>
+                  a.iterations > b.iterations ? 1 : -1
+                )}
+                columns={methodCompareColumns}
+              />
+            </TabPanel>
+            <TabPanel key={2}>
+              <Table items={bisectionResult.trace} columns={genericResultColumn} />
+            </TabPanel>
+            <TabPanel key={3}>
+              <Table
+                items={fixedPointResult.trace}
+                columns={newtonRaphsonColumns}
+              />
+            </TabPanel>
+            <TabPanel key={4}>
+              <Table
+                items={newtonRaphsonResult.trace}
+                columns={newtonRaphsonColumns}
+              />
+            </TabPanel>
+            <TabPanel key={5}>
+              <Table items={secantResult.trace} columns={genericResultColumn} />
+            </TabPanel>
+            <TabPanel key={6}>
+              <Table
+                items={falsePositionResult.trace}
+                columns={genericResultColumn}
+              />
+            </TabPanel>
+          </Tabs>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

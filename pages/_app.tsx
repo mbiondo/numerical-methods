@@ -20,7 +20,7 @@ const NumericalIntegration: FunctionComponent<AppProps> = ({
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Hero />
-      <main className="w-full min-h-full mx-auto py-10 flex flex-col justify-center items-center gap-10">
+      <main className="flex flex-col items-center justify-center w-full min-h-full gap-10 pb-10 mx-auto">
         <MDXProvider components={mdComponents}>
           <Component {...pageProps} />
         </MDXProvider>
