@@ -52,7 +52,6 @@ export const Form: FunctionComponent<FormProps> = ({
   return (
     <div className="sticky top-0 w-full max-w-4xl px-5">
       <form onSubmit={handleSubmit(onSubmit)}>
-
         <fieldset className="flex flex-col items-center py-1 text-sm text-left md:items-start">
           <label htmlFor="equation">
             <TeX>{`f(x)`}</TeX>

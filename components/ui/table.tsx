@@ -58,9 +58,7 @@ export const Table: FunctionComponent<tableProps> = ({ items, columns }) => {
                   >
                     {columns.map((column: Column) => (
                       <td className="p-3 py-2 truncate" key={uuidv4()}>
-                        <span className="">
-                          {item[column.accesor]}
-                        </span>
+                        <span className="">{item[column.accesor]}</span>
                       </td>
                     ))}
                   </tr>

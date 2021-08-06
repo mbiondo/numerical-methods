@@ -10,7 +10,7 @@ export const Hero: FunctionComponent = () => {
         <ActiveLink
           className="duration-500 transform"
           activeClassName="scale-95"
-          href="/slides"
+          href="/"
         >
           <Image src={logoSVG} alt="Logo UAI" />
         </ActiveLink>
