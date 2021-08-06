@@ -42,7 +42,7 @@ export const BisectionMethod = (
   const equation: MathNode = parse(params.equation)
   const initProcess: number = Date.now()
 
-  while (index < params.maxIterations && err >= params.tolerate && !finded) {
+  while (index < params.maxIterations && err > params.tolerate && !finded) {
     c = (b + a) / 2
 
     err = Math.abs((a - b) / 2 ** (index - 1))
@@ -60,7 +60,10 @@ export const BisectionMethod = (
       index
     })
 
-    if (evalC === 0) finded = true
+    if (evalC === 0) {
+      err = 0
+      finded = true
+    }
 
     a = evalA * evalC > 0 ? c : a
     b = evalA * evalC < 0 ? c : b

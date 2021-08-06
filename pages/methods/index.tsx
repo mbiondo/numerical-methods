@@ -10,7 +10,7 @@ interface MethodsProps {
 const Methods: FunctionComponent<MethodsProps> = ({ slug }) => {
   const ComponentToRender: FunctionComponent =
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require(`./../../content/methods/${slug}.mdx`).default
+    require(`./../../content/methods/es/${slug}.mdx`).default
   return (
     <>
       <Head>

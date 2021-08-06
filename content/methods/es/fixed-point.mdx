@@ -1,0 +1,31 @@
+import Image from 'next/image'
+import fixedPointImage from '../../../public/images/fixed-point_1.png'
+
+<h2 id="el-metodo-de-punto-fijo">Método del punto fijo</h2>
+
+El método del punto fijo es un método iterativo que permite resolver sistemas de
+ecuaciones no necesariamente lineales. En particular se puede utilizar para determinar
+raíces de una función de la forma $$f(x)$$, siempre y cuando se cumplan los criterios
+de convergencia.
+
+El método de iteración de punto fijo, también denominado método de aproximación sucesiva, requiere volver a escribir la ecuación $$f(x) = 0$$ en la forma $$x = g(x)$$.
+
+<h2 id="algoritmo">Algoritmo</h2>
+
+El procedimiento empieza con una estimación o conjetura inicial de x, que es mejorada por iteración hasta alcanzar la convergencia. Para que converja, la derivada $$(\frac{dg}{dx})$$ debe ser menor que 1 en magnitud (al menos para los valores x que se encuentran durante las iteraciones). La convergencia será establecida mediante el requisito de que el cambio en x de una iteración a la siguiente no sea mayor en magnitud que alguna pequeña cantidad €.
+
+- Se ubica la raíz de $$f(x)$$ analizando la gráfica.
+- Se obtiene un despeje $$x = g(x)$$ de la función.
+- Obtenemos de $$x = g(x)$$ su derivada $$g'(x)$$.
+- Resolviendo la desigualdad $$-1 \leq g'(x) \leq 1$$ obtenemos el rango de valores en los cuales esta el punto fijo llamado R.
+- Con R buscamos la raíz en $$g(x)$$, es decir $$g(R) = R$$ haciendo iteración de las operaciones.
+
+<Image src={fixedPointImage} alt="Ejemplo grafico" />
+
+<h2 id="info">Relevancia</h2>
+
+Los resultados de punto fijo ocurren en muchas áreas de las matemáticas y son una
+herramienta principal de los economistas para proporcionar resultados concernientes
+a los equilibrios. Aunque la idea detrás de la técnica es antigua, la terminología
+fue usada primero por el matemático holandés L. E. J. Brouwer (1882-1962) a principios
+de 1900.

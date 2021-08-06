@@ -1,0 +1,37 @@
+import Image from 'next/image'
+import secantImage from '../../../public/images/secant_1.png'
+
+<h2 id="el-metodo-de-la-secante">El método de la secante</h2>
+
+El método de Newton es una técnica en extremo poderosa, pero tiene una debilidad
+importante: la necesidad de conocer el valor de la derivada de $$f$$ en cada aproximación.
+Con frecuencia, $$f(x)$$ es mucho más difícil y necesita más operaciones aritméticas
+para calcular $$f(x)$$
+
+Para evitar el problema de la evaluación de la derivada en el método de Newton, presentamos una ligera variación. Por definición,
+
+$$
+f'(p_{n} - 1) = \lim_{x \to p_{n-1}} \frac{f(x) -f(p_{n-1})}{x - p_{n-1}}
+$$
+
+Si $$p_{n-2}$$ está cerca de $$p_{n-1}$$
+
+$$
+f'(p_{n-1}) \approx \frac{f(p_{n-2}) - f(p_{n-1})}{p_{n-2} - p_{n-1}} = \frac{f(p_{n-1}) f(p_{n-2})}{p_{n-1} - p_{n-2}}
+$$
+
+Usando esta aproximación para $$f'(p\_{n-1})$$ en la fórmula de Newton obtenemos
+
+$$
+p_{n} = p_{n-1} - \frac{f(p_{n-1-}) (p_{n-1} - p_{n-2})}{f(p_{n-1}) - f(p_{n-2})}
+$$
+
+<h2 id="Algoritmo">Algoritmo</h2>
+
+Empezando con dos aproximaciones inicianes $$p_{0}$$ y $$p_{1}$$, la aproximación $$p_{2}$$ es la intersección en $$x$$ de la recta que une los puntos $$(p_{0}, f(p_{0}))$$ y $$(p_{1}, f(p_{1}))$$ y asi sucesivamente. Observe que sólo se necesita una evaluación de la función por cada paso para el método de la secamente después de haber determinado $$p_{2}$$. En constraste, cada paso del método de Newton requiere una evaluación tanto de la función como de su derivada.
+
+<Image src={secantImage} alt="Ejemplo grafico" />
+
+<h2 id="conclusion">Conclusión</h2>
+
+El método de Newton o el método de la secante con frecuencia se usan para refinar una respuesta obtenida con otra técnica, como el método de la bisección, ya que estos métodos requieren una primera aproximación adecuada pero, en general, proveen convergencia rápida.

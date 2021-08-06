@@ -1,0 +1,125 @@
+import Image from 'next/image'
+import newtonRapshonImg from '../../../public/images/newton_iteration.png'
+
+<h2 id="historia">Historia</h2>
+
+Isaac Newton (1641–1727) fue uno de los científicos más brillantes de todos los tiempos.
+El final del siglo $$XVII$$ fue un periodo vibrante para la ciencia y las matemáticas,
+y el trabajo de Newton tocó casi todos los aspectos de esta última ciencia. Se presentó
+su método de resolución para encontrar la raiz de la ecuación $$y^3 - 2y - 5 = 0$$.
+A pesasr de que demostró el método sólo para polimonios, es claro que conocia sus
+aplicaciones más amplias.
+
+Joseph Raphson (1648-1715) proprorcionó una descripción de método de Isaac Newton en 1690 y reconoció a Newton como la fuente del descubrimiento. Ni Newton ni Raphson utilizaron explicitamente la derivada en su descripción ya que ambos sólo consideraron polimonios. Otros matemáticos, en especial James Gregory (1636-1675), estaba conscientes del proceso subyacente en esa época o antes.
+
+<h2 id="metodo-newton-raphson">El Método de Newton-Raphson</h2>
+
+El método de Newton es un método abierto, en el sentido de que no está garantizada su convergencia global. La única manera de alcanzar la convergencia es seleccionar un valor inicial lo suficientemente cercano a la raíz buscada. Así, se ha de comenzar la iteración con un valor razonablemente cercano al cero (denominado punto de arranque o valor supuesto). La relativa cercanía del punto inicial a la raíz depende mucho de la naturaleza de la propia función; si ésta presenta múltiples puntos de inflexión o pendientes grandes en el entorno de la raíz, entonces las probabilidades de que el algoritmo diverja aumentan, lo cual exige seleccionar un valor supuesto cercano a la raíz. Una vez que se ha hecho esto, el método linealiza la función por la recta tangente en ese valor supuesto. La abscisa en el origen de dicha recta será, según el método, una mejor aproximación de la raíz que el valor anterior. Se realizarán sucesivas iteraciones hasta que el método haya convergido lo suficiente.
+
+Sea $$f:[a,b] \to \mathbb {R}$$ una función derivable definida en el intervalo real $$[a,b]$$. Empezamos con un valor inicial $$x_{0}$$ y definimos para cada número natural $$n$$
+
+$$
+x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{0})}
+$$
+
+Donde $$f'$$ denota la derivada de $$f$$.
+
+Nótese que el método descrito es de aplicación exclusiva para funciones de una sola variable con forma analítica o implícita conocible. Existen variantes del método aplicables a sistemas discretos que permiten estimar las raíces de la tendencia, así como algoritmos que extienden el método de Newton a sistemas multivariables, sistemas de ecuaciones, etcétera.
+
+<h2 id="algoritmo">Algoritmo</h2>
+
+Tres son las formas principales por las que tradicionalmente se ha obtenido el algoritmo de Newton-Raphson.
+
+La primera de ellas es una simple interpretación geométrica. En efecto, atendiendo al desarrollo geométrico del método de la secante, podría pensarse en que si los puntos de iteración están lo suficientemente cerca (a una distancia infinitesimal), entonces la secante se sustituye por la tangente a la curva en el punto. Así pues, si por un punto de iteración trazamos la tangente a la curva, por extensión con el método de la secante, el nuevo punto de iteración se tomará como la abscisa en el origen de la tangente (punto de corte de la tangente con el eje $$x$$. Esto es equivalente a linealizar la función, es decir, $$f$$ se reemplaza por una recta tal que contiene al punto ($$x_{0}$$, $$f$$ ($$x_{0}$$)) y cuya pendiente coincide con la derivada de la función en el punto, $$f'(x_{0})$$. La nueva aproximación a la raíz, $$x_{1}$$, se logra de la intersección de la función lineal con el eje de abscisas. Matemáticamente:
+
+$$
+f'(x_{n}) = \frac{f(x_{n})}{x_{n} - x_{n+1}}
+$$
+
+En la ilustración adjunta del método de Newton se puede ver que $$x_{n+1}$$ es una mejor aproximación que $$x_{n}$$ para el cero $$(x)$$ de la función $$f$$.
+
+Una forma alternativa de obtener el algoritmo es desarrollando la función $$f(x)$$ en serie de Taylor, para un entorno del punto $$x_{n}$$:
+
+$$
+f(x) = f(x_{n}) + f'(x_{0})(x - x_{n}) + (x - x_{n})^2 \frac{f''(x_{n})}{2!} + ...
+$$
+
+Si se trunca el desarrollo a partir del término de grado 2, y evaluamos en $$x_{n+1}$$:
+
+$$
+f(x_{n+1}) = f(x_{n}) + f'(x_{n})(x_{n+1} - x_{x})
+$$
+
+Si además se acepta que $$x_{n+1}$$ tiende a la raíz, se ha de cumplir que $$f(x_{n+1})=0$$, luego, sustituyendo en la expresión anterior, obtenemos el algoritmo.
+
+Finalmente, hay que indicar que el método de Newton-Raphson puede interpretarse como un método de iteración de punto fijo. Así, dada la ecuación $$f(x)=0$$, se puede considerar el siguiente método de iteración de punto fijo:
+
+$$
+g(x) = x + h(x)f(x)
+$$
+
+Se escoge $$h(x)$$ de manera que $$g'(r) = 0$$ ($$r$$ es la raiz buscada). Dado que $$g'(r)$$ es:
+
+$$
+  g'(r) = 1 + h'(r)f(r) + h(r)f'(r) = 1 + h(r)f'(r)
+$$
+
+Entonces:
+
+$$
+h(r) = \frac{-1}{f'(r)}
+$$
+
+Como $$h(x)$$ no tiene que ser único, se escoge de la forma más sensilla:
+
+$$
+h(x) = \frac{-1}{f'(x)}
+$$
+
+Por lo tanto, inponiendo subíndices:
+
+$$
+g(x_{n}) = x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})}
+$$
+
+<Image src={newtonRapshonImg} alt="Ejemplo grafico" />
+
+<h2 id="convergencia">Convergencia</h2>
+
+El orden de convergencia de este método es, por lo menos, cuadrático. Sin embargo, si la raíz buscada es de multiplicidad algebraica mayor a uno (i.e, una raíz doble, triple, …), el método de Newton-Raphson pierde su convergencia cuadrática y pasa a ser lineal de constante asintótica de convergencia 1-1/m, con m la multiplicidad de la raíz.
+
+Existen numerosas formas de evitar este problema, como pudieran ser los métodos de aceleración de la convergencia tipo Δ² de Aitken o el método de Steffensen.
+
+$$
+x_{n+1} = x_{n} - m \frac{f(x_{n})}{f'(x_{})}
+$$
+
+Evidentemente, este método exige conocer de antemano la multiplicidad de la raíz, lo cual no siempre es posible. Por ello también se puede modificar el algoritmo tomando una función auxiliar $$g(x) = \frac{f(x)}{f'(x)}$$, resultando:
+
+$$
+x_{n+1} = x_{n} - \frac{g(x_{n})}{g'(x_{n})}
+$$
+
+Su principal desventaja en este caso sería lo costoso que pudiera ser hallar $$g(x)$$ y $$g'(x)$$ si $$f(x)$$ no es fácilmente derivable.
+
+Por otro lado, la convergencia del método se demuestra cuadrática para el caso más habitual sobre la base de tratar el método como uno de punto fijo: si $$g'(r)=0$$, y $$g''(r)$$ es distinto de 0, entonces la convergencia es cuadrática. Sin embargo, está sujeto a las particularidades de estos métodos.
+
+Nótese de todas formas que el método de Newton-Raphson es un método abierto: la convergencia no está garantizada por un teorema de convergencia global como podría estarlo en los métodos de falsa posición o de bisección. Así, es necesario partir de una aproximación inicial próxima a la raíz buscada para que el método converja y cumpla el teorema de convergencia local.
+
+<h2 id="estimacion-del-error">Estimación del error</h2>
+
+Se puede demostrar que el método de Newton-Raphson tiene convergencia cuadrática: si {\displaystyle \alpha }\alpha es raíz, entonces:
+
+$$
+|x_{k+1}-\alpha |\leq C|x_{k}-\alpha |^{2}
+$$
+
+para una cierta constante $$C$$. Esto significa que si en algún momento el error es menor o igual a 0,1, a cada nueva iteración doblamos (aproximadamente) el número de decimales exactos. En la práctica puede servir para hacer una estimación aproximada del error:
+
+Error relativo entre dos aproximaciones sucesivas:
+
+$$
+E = \frac{|x_{k+1} - x_{k}|}{|x_{k+1}|}
+$$
+
+Con lo cual se toma el error relativo como si la última aproximación fuera el valor exacto. Se detiene el proceso iterativo cuando este error relativo es aproximadamente menor que una cantidad fijada previamente.
