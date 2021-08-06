@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import newtonRapshonImg from '../../public/images/newton_iteration.png'
+
 <h2 id="historia">Historia</h2>
 
 Isaac Newton (1641–1727) fue uno de los científicos más brillantes de todos los tiempos.
@@ -32,3 +35,91 @@ La primera de ellas es una simple interpretación geométrica. En efecto, atendi
 $$
 f'(x_{n}) = \frac{f(x_{n})}{x_{n} - x_{n+1}}
 $$
+
+En la ilustración adjunta del método de Newton se puede ver que $$x_{n+1}$$ es una mejor aproximación que $$x_{n}$$ para el cero $$(x)$$ de la función $$f$$.
+
+Una forma alternativa de obtener el algoritmo es desarrollando la función $$f(x)$$ en serie de Taylor, para un entorno del punto $$x_{n}$$:
+
+$$
+f(x) = f(x_{n}) + f'(x_{0})(x - x_{n}) + (x - x_{n})^2 \frac{f''(x_{n})}{2!} + ...
+$$
+
+Si se trunca el desarrollo a partir del término de grado 2, y evaluamos en $$x_{n+1}$$:
+
+$$
+f(x_{n+1}) = f(x_{n}) + f'(x_{n})(x_{n+1} - x_{x})
+$$
+
+Si además se acepta que $$x_{n+1}$$ tiende a la raíz, se ha de cumplir que $$f(x_{n+1})=0$$, luego, sustituyendo en la expresión anterior, obtenemos el algoritmo.
+
+Finalmente, hay que indicar que el método de Newton-Raphson puede interpretarse como un método de iteración de punto fijo. Así, dada la ecuación $$f(x)=0$$, se puede considerar el siguiente método de iteración de punto fijo:
+
+$$
+g(x) = x + h(x)f(x)
+$$
+
+Se escoge $$h(x)$$ de manera que $$g'(r) = 0$$ ($$r$$ es la raiz buscada). Dado que $$g'(r)$$ es:
+
+$$
+  g'(r) = 1 + h'(r)f(r) + h(r)f'(r) = 1 + h(r)f'(r)
+$$
+
+Entonces:
+
+$$
+h(r) = \frac{-1}{f'(r)}
+$$
+
+Como $$h(x)$$ no tiene que ser único, se escoge de la forma más sensilla:
+
+$$
+h(x) = \frac{-1}{f'(x)}
+$$
+
+Por lo tanto, inponiendo subíndices:
+
+$$
+g(x_{n}) = x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})}
+$$
+
+<Image src={newtonRapshonImg} alt="Ejemplo grafico" />
+
+<h2 id="convergencia">Convergencia</h2>
+
+El orden de convergencia de este método es, por lo menos, cuadrático. Sin embargo, si la raíz buscada es de multiplicidad algebraica mayor a uno (i.e, una raíz doble, triple, …), el método de Newton-Raphson pierde su convergencia cuadrática y pasa a ser lineal de constante asintótica de convergencia 1-1/m, con m la multiplicidad de la raíz.
+
+Existen numerosas formas de evitar este problema, como pudieran ser los métodos de aceleración de la convergencia tipo Δ² de Aitken o el método de Steffensen.
+
+$$
+x_{n+1} = x_{n} - m \frac{f(x_{n})}{f'(x_{})}
+$$
+
+Evidentemente, este método exige conocer de antemano la multiplicidad de la raíz, lo cual no siempre es posible. Por ello también se puede modificar el algoritmo tomando una función auxiliar $$g(x) = \frac{f(x)}{f'(x)}$$, resultando:
+
+$$
+x_{n+1} = x_{n} - \frac{g(x_{n})}{g'(x_{n})}
+$$
+
+Su principal desventaja en este caso sería lo costoso que pudiera ser hallar $$g(x)$$ y $$g'(x)$$ si $$f(x)$$ no es fácilmente derivable.
+
+Por otro lado, la convergencia del método se demuestra cuadrática para el caso más habitual sobre la base de tratar el método como uno de punto fijo: si $$g'(r)=0$$, y $$g''(r)$$ es distinto de 0, entonces la convergencia es cuadrática. Sin embargo, está sujeto a las particularidades de estos métodos.
+
+Nótese de todas formas que el método de Newton-Raphson es un método abierto: la convergencia no está garantizada por un teorema de convergencia global como podría estarlo en los métodos de falsa posición o de bisección. Así, es necesario partir de una aproximación inicial próxima a la raíz buscada para que el método converja y cumpla el teorema de convergencia local.
+
+<h2 id="estimacion-del-error">Estimación del error</h2>
+
+Se puede demostrar que el método de Newton-Raphson tiene convergencia cuadrática: si {\displaystyle \alpha }\alpha es raíz, entonces:
+
+$$
+|x_{k+1}-\alpha |\leq C|x_{k}-\alpha |^{2}
+$$
+
+para una cierta constante $$C$$. Esto significa que si en algún momento el error es menor o igual a 0,1, a cada nueva iteración doblamos (aproximadamente) el número de decimales exactos. En la práctica puede servir para hacer una estimación aproximada del error:
+
+Error relativo entre dos aproximaciones sucesivas:
+
+$$
+E = \frac{|x_{k+1} - x_{k}|}{|x_{k+1}|}
+$$
+
+Con lo cual se toma el error relativo como si la última aproximación fuera el valor exacto. Se detiene el proceso iterativo cuando este error relativo es aproximadamente menor que una cantidad fijada previamente.
