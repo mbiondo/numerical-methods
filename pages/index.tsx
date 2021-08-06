@@ -102,11 +102,11 @@ const Home: FunctionComponent = () => {
             <p>
               Los siguientes métodos son para calcular las raíces reales de una
               ecuación dada por <TeX>{`f(x) = 0`}</TeX> donde se exige al menos
-              que la función $$f$$ sea una función continua para garantizar la
-              existencia de solución. La mayoría de métodos se obtienen de
-              interpolar la función, generalmente mediante un polinomio de
-              primer grado (interpolación lineal) y después aproximar la
-              solución mediante alguna de las raíces del polinomio.
+              que la función <TeX>{`f`}</TeX> sea una función continua para
+              garantizar la existencia de solución. La mayoría de métodos se
+              obtienen de interpolar la función, generalmente mediante un
+              polinomio de primer grado (interpolación lineal) y después
+              aproximar la solución mediante alguna de las raíces del polinomio.
             </p>
           </article>
         </section>
