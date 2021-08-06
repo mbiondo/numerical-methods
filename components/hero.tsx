@@ -17,15 +17,7 @@ export const Hero: FunctionComponent = () => {
         <div
           id="sideMenuHideOnMobile"
           className="flex flex-row gap-5 font-semibold text-white transition-all duration-500 transform translate-x-0"
-        >
-          <ActiveLink
-            className="my-2 transition-all duration-500 border-b-2 sm:mx-2 hover:border-white hover:opacity-80 sm:p-0"
-            activeClassName="border-pink-600 text-white-400"
-            href="/playground"
-          >
-            Playground
-          </ActiveLink>
-        </div>
+        ></div>
       </nav>
     </div>
   )

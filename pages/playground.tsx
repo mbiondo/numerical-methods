@@ -164,8 +164,8 @@ const Playground: FunctionComponent = () => {
               id={'geogebra-applet'}
               height={400}
               width={1200}
-              showMenuBar={true}
-              showToolBar={true}
+              showMenuBar={false}
+              showToolBar={false}
               showAlgebraInput={false}
               appletOnLoad={() => {
                 return ''

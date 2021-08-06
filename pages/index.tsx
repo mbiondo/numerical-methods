@@ -67,12 +67,11 @@ const Home: FunctionComponent = () => {
           >
             Método del punto fijo
           </AnchorLink>
-          <AnchorLink
-            className="w-full px-3 py-2 border-l-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
-            href="#comparativa"
-          >
-            Comparativa
-          </AnchorLink>
+          <Link href="/playground">
+            <a className="w-full px-3 py-2 border-l-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50">
+              Comparativa
+            </a>
+          </Link>
         </div>
         <section className="max-w-5xl min-h-screen mx-auto my-6 bg-white shadow">
           <article
@@ -162,10 +161,10 @@ const Home: FunctionComponent = () => {
                   Método de Newton
                 </h3>
                 <p className="mb-3 text-xl text-white">
-                  El método de Newton asume que la función f sea continuamente
-                  derivable y que se conoce la derivada de la función. Este
-                  método puede no converger si se comienza con un valor muy
-                  alejado de la raíz.
+                  El método de Newton asume que la función <TeX>{`f(x)`}</TeX>{' '}
+                  sea continuamente derivable y que se conoce la derivada de la
+                  función. Este método puede no converger si se comienza con un
+                  valor muy alejado de la raíz.
                 </p>
                 <p className="text-xl text-white">
                   Sin embargo, si converge, lo hace mucho más rápido que el
@@ -185,7 +184,6 @@ const Home: FunctionComponent = () => {
             </Fade>
             <Fade delay={400}>
               <div className="p-2 mt-5 bg-white">
-                
                 <Image
                   layout="responsive"
                   src={newtonRapshonImg}
@@ -286,9 +284,10 @@ const Home: FunctionComponent = () => {
                 <p className="text-2xl text-white ">
                   Finalmente, hay una familia de métodos conocidos como métodos
                   de punto fijo. Estos métodos se basan en obtener a partir de
-                  la ecuación f(x) = 0 una ecuación equivalente de la forma g(x)
-                  = x cuya solución se convierta en un punto fijo de g e
-                  iterando a partir de un valor inicial hasta que se alcance.
+                  la ecuación <TeX>{`f(x) = 0`}</TeX> una ecuación equivalente
+                  de la forma <TeX>{`g(x) = x`}</TeX> cuya solución se convierta
+                  en un punto fijo de g e iterando a partir de un valor inicial
+                  hasta que se alcance.
                 </p>
                 <div className="flex justify-start w-full">
                   <Link href="/methods/fixed-point">
@@ -308,14 +307,6 @@ const Home: FunctionComponent = () => {
                 />
               </div>
             </Fade>
-          </div>
-        </div>
-        <div
-          className="relative flex items-center justify-center min-h-screen bg-pink-800"
-          id="comparativa"
-        >
-          <div className="relative flex flex-col items-center justify-center w-full max-w-6xl mx-auto overflow-hidden text-center text-gray-900 bg-gray-100 ">
-            <h2 className="py-6 text-3xl text-center">Comparativa</h2>
           </div>
         </div>
       </div>
