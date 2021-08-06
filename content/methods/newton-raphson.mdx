@@ -1,1 +1,34 @@
-This is text some content from `_markdown-partial-example.mdx`.
+<h2 id="historia">Historia</h2>
+
+Isaac Newton (1641–1727) fue uno de los científicos más brillantes de todos los tiempos.
+El final del siglo $$XVII$$ fue un periodo vibrante para la ciencia y las matemáticas,
+y el trabajo de Newton tocó casi todos los aspectos de esta última ciencia. Se presentó
+su método de resolución para encontrar la raiz de la ecuación $$y^3 - 2y - 5 = 0$$.
+A pesasr de que demostró el método sólo para polimonios, es claro que conocia sus
+aplicaciones más amplias.
+
+Joseph Raphson (1648-1715) proprorcionó una descripción de método de Isaac Newton en 1690 y reconoció a Newton como la fuente del descubrimiento. Ni Newton ni Raphson utilizaron explicitamente la derivada en su descripción ya que ambos sólo consideraron polimonios. Otros matemáticos, en especial James Gregory (1636-1675), estaba conscientes del proceso subyacente en esa época o antes.
+
+<h2 id="metodo-newton-raphson">El Método de Newton-Raphson</h2>
+
+El método de Newton es un método abierto, en el sentido de que no está garantizada su convergencia global. La única manera de alcanzar la convergencia es seleccionar un valor inicial lo suficientemente cercano a la raíz buscada. Así, se ha de comenzar la iteración con un valor razonablemente cercano al cero (denominado punto de arranque o valor supuesto). La relativa cercanía del punto inicial a la raíz depende mucho de la naturaleza de la propia función; si ésta presenta múltiples puntos de inflexión o pendientes grandes en el entorno de la raíz, entonces las probabilidades de que el algoritmo diverja aumentan, lo cual exige seleccionar un valor supuesto cercano a la raíz. Una vez que se ha hecho esto, el método linealiza la función por la recta tangente en ese valor supuesto. La abscisa en el origen de dicha recta será, según el método, una mejor aproximación de la raíz que el valor anterior. Se realizarán sucesivas iteraciones hasta que el método haya convergido lo suficiente.
+
+Sea $$f:[a,b] \to \mathbb {R}$$ una función derivable definida en el intervalo real $$[a,b]$$. Empezamos con un valor inicial $$x_{0}$$ y definimos para cada número natural $$n$$
+
+$$
+x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{0})}
+$$
+
+Donde $$f'$$ denota la derivada de $$f$$.
+
+Nótese que el método descrito es de aplicación exclusiva para funciones de una sola variable con forma analítica o implícita conocible. Existen variantes del método aplicables a sistemas discretos que permiten estimar las raíces de la tendencia, así como algoritmos que extienden el método de Newton a sistemas multivariables, sistemas de ecuaciones, etcétera.
+
+<h2 id="algoritmo">Algoritmo</h2>
+
+Tres son las formas principales por las que tradicionalmente se ha obtenido el algoritmo de Newton-Raphson.
+
+La primera de ellas es una simple interpretación geométrica. En efecto, atendiendo al desarrollo geométrico del método de la secante, podría pensarse en que si los puntos de iteración están lo suficientemente cerca (a una distancia infinitesimal), entonces la secante se sustituye por la tangente a la curva en el punto. Así pues, si por un punto de iteración trazamos la tangente a la curva, por extensión con el método de la secante, el nuevo punto de iteración se tomará como la abscisa en el origen de la tangente (punto de corte de la tangente con el eje $$x$$. Esto es equivalente a linealizar la función, es decir, $$f$$ se reemplaza por una recta tal que contiene al punto ($$x_{0}$$, $$f$$ ($$x_{0}$$)) y cuya pendiente coincide con la derivada de la función en el punto, $$f'(x_{0})$$. La nueva aproximación a la raíz, $$x_{1}$$, se logra de la intersección de la función lineal con el eje de abscisas. Matemáticamente:
+
+$$
+f'(x_{n}) = \frac{f(x_{n})}{x_{n} - x_{n+1}}
+$$

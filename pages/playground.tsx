@@ -175,49 +175,56 @@ const Playground: FunctionComponent = () => {
             />
           </div>
           <div className="px-6">
-          <Tabs>
-            <TabList>
-              <Tab key={1}>Vista general</Tab>
-              <Tab key={2}>Biseccion</Tab>
-              <Tab key={3}>Punto fijo</Tab>
-              <Tab key={4}>Newton Raphson</Tab>
-              <Tab key={5}>Secante</Tab>
-              <Tab key={6}>Posición Falsa</Tab>
-            </TabList>
+            <Tabs>
+              <TabList>
+                <Tab key={1}>Vista general</Tab>
+                <Tab key={2}>Biseccion</Tab>
+                <Tab key={3}>Punto fijo</Tab>
+                <Tab key={4}>Newton Raphson</Tab>
+                <Tab key={5}>Secante</Tab>
+                <Tab key={6}>Posición Falsa</Tab>
+              </TabList>
 
-            <TabPanel key={1}>
-              <Table
-                items={methodResultList.sort((a: MethodResult, b: MethodResult) =>
-                  a.iterations > b.iterations ? 1 : -1
-                )}
-                columns={methodCompareColumns}
-              />
-            </TabPanel>
-            <TabPanel key={2}>
-              <Table items={bisectionResult.trace} columns={genericResultColumn} />
-            </TabPanel>
-            <TabPanel key={3}>
-              <Table
-                items={fixedPointResult.trace}
-                columns={newtonRaphsonColumns}
-              />
-            </TabPanel>
-            <TabPanel key={4}>
-              <Table
-                items={newtonRaphsonResult.trace}
-                columns={newtonRaphsonColumns}
-              />
-            </TabPanel>
-            <TabPanel key={5}>
-              <Table items={secantResult.trace} columns={genericResultColumn} />
-            </TabPanel>
-            <TabPanel key={6}>
-              <Table
-                items={falsePositionResult.trace}
-                columns={genericResultColumn}
-              />
-            </TabPanel>
-          </Tabs>
+              <TabPanel key={1}>
+                <Table
+                  items={methodResultList.sort(
+                    (a: MethodResult, b: MethodResult) =>
+                      a.iterations > b.iterations ? 1 : -1
+                  )}
+                  columns={methodCompareColumns}
+                />
+              </TabPanel>
+              <TabPanel key={2}>
+                <Table
+                  items={bisectionResult.trace}
+                  columns={genericResultColumn}
+                />
+              </TabPanel>
+              <TabPanel key={3}>
+                <Table
+                  items={fixedPointResult.trace}
+                  columns={newtonRaphsonColumns}
+                />
+              </TabPanel>
+              <TabPanel key={4}>
+                <Table
+                  items={newtonRaphsonResult.trace}
+                  columns={newtonRaphsonColumns}
+                />
+              </TabPanel>
+              <TabPanel key={5}>
+                <Table
+                  items={secantResult.trace}
+                  columns={genericResultColumn}
+                />
+              </TabPanel>
+              <TabPanel key={6}>
+                <Table
+                  items={falsePositionResult.trace}
+                  columns={genericResultColumn}
+                />
+              </TabPanel>
+            </Tabs>
           </div>
         </div>
       </div>

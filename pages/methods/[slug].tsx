@@ -30,7 +30,14 @@ const Methods: FunctionComponent<MethodsProps> = ({ slug }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const arr: string[] = ['bisection', 'newton-raphson', 'index']
+  const arr: string[] = [
+    'bisection',
+    'newton-raphson',
+    'fixed-point',
+    'false-position',
+    'secant',
+    'index'
+  ]
   const paths = arr.map(slug => {
     return {
       params: { slug }

@@ -7,7 +7,11 @@ export const Hero: FunctionComponent = () => {
   return (
     <div className="top-0 bg-pink-900 shadow ">
       <nav className="flex items-center justify-between max-w-full p-4 mx-auto">
-        <ActiveLink className="duration-500 transform" activeClassName="scale-95" href="/slides">
+        <ActiveLink
+          className="duration-500 transform"
+          activeClassName="scale-95"
+          href="/slides"
+        >
           <Image src={logoSVG} alt="Logo UAI" />
         </ActiveLink>
         <div
