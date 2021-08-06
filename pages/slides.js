@@ -28,8 +28,8 @@ const Intro = () => {
               permita calcular un valor aproximado de la solución."
         />
       </Head>
-      <div className="w-full pb-24 bg-gray-100">
-        <div className="fixed z-50 flex flex-col p-2 space-y-2 text-gray-500 bg-white shadow left-4 top-24 ">
+      <div className="w-full pb-12 bg-gray-100 ">
+        <div className="fixed top-0 left-0 z-40 flex flex-col justify-center min-h-screen p-2 space-y-2 text-gray-500 bg-white shadow ">
           <AnchorLink
             className="w-full px-3 py-2 border-l-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
             href="#introduccion"
@@ -73,10 +73,10 @@ const Intro = () => {
             Comparativa
           </AnchorLink>
         </div>
-        <section className="max-w-5xl mx-auto mt-6 bg-white shadow">
+        <section className="max-w-5xl min-h-screen mx-auto my-6 bg-white shadow">
           <article
             id="introduccion"
-            className="px-3 py-24 mx-auto font-serif prose lg:prose-xl"
+            className="px-3 py-12 pb-3 mx-auto font-serif prose lg:prose-xl"
           >
             <h3>Introducción</h3>
             <p>
@@ -111,25 +111,27 @@ const Intro = () => {
           </article>
         </section>
         <div
-          className="relative flex items-center justify-center min-h-screen bg-pink-800"
+          className="relative flex items-center justify-center min-h-screen text-pink-900 bg-fixed bg-pink-800 pattern-grid-lg"
           id="metodo-de-bisección"
         >
-          <div className="grid grid-cols-2 gap-2 mx-auto max-w-7xl ">
+          <div className="grid grid-cols-2 gap-2 px-6 pb-6 mx-auto bg-pink-900 shadow-md max-w-7xl">
             <Fade delay={400}>
-              <Image
-                layout="responsive"
-                src="/images/bisection_1.png"
-                alt="Ejemplo grafico"
-                width={1527}
-                height={1079}
-              />
+              <div className="mt-5">
+                <Image
+                  layout="responsive"
+                  src="/images/bisection_1.png"
+                  alt="Ejemplo grafico"
+                  width={1527}
+                  height={1079}
+                />
+              </div>
             </Fade>
             <Fade>
               <div className="flex flex-col items-center justify-center p-6 text-left text-white">
                 <h3 className="w-full pb-6 text-4xl font-bold text-left text-white">
                   Método de bisección.
                 </h3>
-                <p className="text-2xl text-white ">
+                <p className="text-xl text-white ">
                   El algoritmo más simple de búsqueda de raíces es el método de
                   bisección. Requiere un intervalo inicial que contenga alguna
                   raíz de la ecuación (de forma que la función tome en los
@@ -141,7 +143,7 @@ const Intro = () => {
                 </p>
                 <div className="flex justify-start w-full">
                   <Link href="/methods/bisection">
-                    <a className="inline-block p-2 px-4 mt-4 font-bold text-pink-900 duration-100 bg-white rounded-md cursor-pointer hover:bg-pink-300">
+                    <a className="inline-block p-3 px-8 mt-4 font-bold text-pink-900 duration-500 bg-white rounded-md cursor-pointer hover:bg-gray-300">
                       Ver detalle
                     </a>
                   </Link>
@@ -151,51 +153,65 @@ const Intro = () => {
           </div>
         </div>
         <div
-          className="relative flex items-center justify-center min-h-screen bg-pink-800"
+          className="relative flex items-center justify-center min-h-screen text-pink-900 bg-fixed bg-pink-800 pattern-grid-lg"
           id="newton"
         >
-          <div className="grid grid-cols-2 gap-2 mx-auto max-w-7xl ">
+          <div className="grid grid-cols-2 gap-2 px-6 pb-6 mx-auto bg-pink-900 shadow-md max-w-7xl">
             <Fade>
               <div className="flex flex-col items-center justify-center p-6 text-left text-white">
                 <h3 className="w-full pb-6 text-4xl font-bold text-left text-white">
                   Método de Newton.
                 </h3>
-                <p className="text-2xl text-white ">
+                <p className="mb-3 text-xl text-white">
                   El método de Newton asume que la función f sea continuamente
                   derivable y que se conoce la derivada de la función. Este
                   método puede no converger si se comienza con un valor muy
-                  alejado de la raíz. Sin embargo, si converge, lo hace mucho
-                  más rápido que el método de bisección (usualmente, de manera
-                  cuadrática), por eso el número de dígitos correctos se duplica
-                  en cada iteración. El método de Newton también es útil porque
-                  se generaliza para problemas de dimensiones más altas.
+                  alejado de la raíz.
                 </p>
+                <p className="text-xl text-white">
+                  Sin embargo, si converge, lo hace mucho más rápido que el
+                  método de bisección (usualmente, de manera cuadrática), por
+                  eso el número de dígitos correctos se duplica en cada
+                  iteración. El método de Newton también es útil porque se
+                  generaliza para problemas de dimensiones más altas.
+                </p>
+                <div className="flex justify-start w-full">
+                  <Link href="/methods/newton-raphson">
+                    <a className="inline-block p-3 px-8 mt-6 font-bold text-pink-900 duration-500 bg-white rounded-md cursor-pointer hover:bg-gray-300">
+                      Ver detalle
+                    </a>
+                  </Link>
+                </div>
               </div>
             </Fade>
             <Fade delay={400}>
-              <Image
-                layout="responsive"
-                src="/images/bisection_1.png"
-                alt="Ejemplo grafico"
-                width={1527}
-                height={1079}
-              />
+              <div className="mt-5">
+                <Image
+                  layout="responsive"
+                  src="/images/bisection_1.png"
+                  alt="Ejemplo grafico"
+                  width={1527}
+                  height={1079}
+                />
+              </div>
             </Fade>
           </div>
         </div>
         <div
-          className="relative flex items-center justify-center min-h-screen bg-pink-800"
+          className="relative flex items-center justify-center min-h-screen text-pink-900 bg-fixed bg-pink-800 pattern-grid-lg"
           id="secante"
         >
-          <div className="grid grid-cols-2 gap-2 mx-auto max-w-7xl ">
+          <div className="grid grid-cols-2 gap-2 px-6 pb-6 mx-auto bg-pink-900 shadow-md max-w-7xl">
             <Fade delay={400}>
-              <Image
-                layout="responsive"
-                src="/images/bisection_1.png"
-                alt="Ejemplo grafico"
-                width={1527}
-                height={1079}
-              />
+              <div className="mt-5">
+                <Image
+                  layout="responsive"
+                  src="/images/bisection_1.png"
+                  alt="Ejemplo grafico"
+                  width={1527}
+                  height={1079}
+                />
+              </div>
             </Fade>
             <Fade>
               <div className="flex flex-col items-center justify-center p-6 text-left text-white">
@@ -209,31 +225,39 @@ const Intro = () => {
                   precio que se debe pagar es un orden de convergencia más bajo
                   (aproximadamente 1.6).
                 </p>
+                <div className="flex justify-start w-full">
+                  <Link href="/methods/secant">
+                    <a className="inline-block p-3 px-8 mt-4 font-bold text-pink-900 duration-500 bg-white rounded-md cursor-pointer hover:bg-gray-300">
+                      Ver detalle
+                    </a>
+                  </Link>
+                </div>
               </div>
             </Fade>
           </div>
         </div>
-
         <div
-          className="relative flex items-center justify-center min-h-screen bg-pink-800"
+          className="relative flex items-center justify-center min-h-screen text-pink-900 bg-fixed bg-pink-800 pattern-grid-lg"
           id="regla-falsa"
         >
-          <div className="grid grid-cols-2 gap-2 mx-auto max-w-7xl ">
+          <div className="grid grid-cols-2 gap-2 px-6 pb-6 mx-auto bg-pink-900 shadow-md max-w-7xl">
             <Fade delay={400}>
-              <Image
-                layout="responsive"
-                src="/images/bisection_1.png"
-                alt="Ejemplo grafico"
-                width={1527}
-                height={1079}
-              />
+              <div className="mt-5">
+                <Image
+                  layout="responsive"
+                  src="/images/bisection_1.png"
+                  alt="Ejemplo grafico"
+                  width={1527}
+                  height={1079}
+                />
+              </div>
             </Fade>
             <Fade>
               <div className="flex flex-col items-center justify-center p-6 text-left text-white">
                 <h3 className="w-full pb-6 text-4xl font-bold text-left text-white">
                   Método de la regla falsa
                 </h3>
-                <p className="text-2xl text-white ">
+                <p className="text-xl text-white ">
                   El método de la regla falsa (o regula falsi) es un método que
                   combina lo mejor del método de bisección y del método de la
                   secante. El método corta el intervalo en dos partes como en el
@@ -244,16 +268,22 @@ const Intro = () => {
                   generalmente de forma más rápida que el método de bisección
                   pero más lenta que el método de la secante.
                 </p>
+                <div className="flex justify-start w-full">
+                  <Link href="/methods/false-position">
+                    <a className="inline-block p-3 px-8 mt-4 font-bold text-pink-900 duration-500 bg-white rounded-md cursor-pointer hover:bg-gray-300">
+                      Ver detalle
+                    </a>
+                  </Link>
+                </div>
               </div>
             </Fade>
           </div>
         </div>
-
         <div
-          className="relative flex items-center justify-center min-h-screen bg-pink-800"
+          className="relative flex items-center justify-center min-h-screen text-pink-900 bg-fixed bg-pink-800 pattern-grid-lg"
           id="punto-fijo"
         >
-          <div className="grid grid-cols-2 gap-2 mx-auto max-w-7xl ">
+          <div className="grid grid-cols-2 gap-2 px-6 pb-6 mx-auto bg-pink-900 shadow-md max-w-7xl">
             <Fade>
               <div className="flex flex-col items-center justify-center p-6 text-left text-white">
                 <h3 className="w-full pb-6 text-4xl font-bold text-left text-white">
@@ -266,20 +296,28 @@ const Intro = () => {
                   = x cuya solución se convierta en un punto fijo de g e
                   iterando a partir de un valor inicial hasta que se alcance.
                 </p>
+                <div className="flex justify-start w-full">
+                  <Link href="/methods/fixed-point">
+                    <a className="inline-block p-3 px-8 mt-4 font-bold text-pink-900 duration-500 bg-white rounded-md cursor-pointer hover:bg-gray-300">
+                      Ver detalle
+                    </a>
+                  </Link>
+                </div>
               </div>
             </Fade>
             <Fade delay={400}>
-              <Image
-                layout="responsive"
-                src="/images/bisection_1.png"
-                alt="Ejemplo grafico"
-                width={1527}
-                height={1079}
-              />
+              <div className="mt-5">
+                <Image
+                  layout="responsive"
+                  src="/images/bisection_1.png"
+                  alt="Ejemplo grafico"
+                  width={1527}
+                  height={1079}
+                />
+              </div>
             </Fade>
           </div>
         </div>
-
         <div
           className="relative flex items-center justify-center min-h-screen bg-pink-800"
           id="comparativa"

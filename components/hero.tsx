@@ -5,7 +5,7 @@ import logoSVG from '../public/images/logo-uai.svg'
 
 export const Hero: FunctionComponent = () => {
   return (
-    <div className="top-0 bg-pink-900 shadow ">
+    <div className="relative top-0 z-50 bg-pink-900 shadow ">
       <nav className="flex items-center justify-between max-w-full p-4 mx-auto">
         <ActiveLink
           className="duration-500 transform"
