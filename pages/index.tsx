@@ -41,7 +41,7 @@ const Home: FunctionComponent = () => {
             className="w-full px-3 py-2 border-l-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
             href="#metodo-de-bisección"
           >
-            Método de Bisección.
+            Método de Bisección
           </AnchorLink>
           <AnchorLink
             className="w-full px-3 py-2 border-l-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
@@ -128,7 +128,7 @@ const Home: FunctionComponent = () => {
             <Fade>
               <div className="flex flex-col items-center justify-center p-6 text-left text-white">
                 <h3 className="w-full pb-6 text-4xl font-bold text-left text-white">
-                  Método de bisección.
+                  Método de bisección
                 </h3>
                 <p className="text-xl text-white ">
                   El algoritmo más simple de búsqueda de raíces es el método de
@@ -159,7 +159,7 @@ const Home: FunctionComponent = () => {
             <Fade>
               <div className="flex flex-col items-center justify-center p-6 text-left text-white">
                 <h3 className="w-full pb-6 text-4xl font-bold text-left text-white">
-                  Método de Newton.
+                  Método de Newton
                 </h3>
                 <p className="mb-3 text-xl text-white">
                   El método de Newton asume que la función f sea continuamente
@@ -184,7 +184,8 @@ const Home: FunctionComponent = () => {
               </div>
             </Fade>
             <Fade delay={400}>
-              <div className="mt-5">
+              <div className="p-2 mt-5 bg-white">
+                
                 <Image
                   layout="responsive"
                   src={newtonRapshonImg}
@@ -211,7 +212,7 @@ const Home: FunctionComponent = () => {
             <Fade>
               <div className="flex flex-col items-center justify-center p-6 text-left text-white">
                 <h3 className="w-full pb-6 text-4xl font-bold text-left text-white">
-                  Método de la Secante.
+                  Método de la Secante
                 </h3>
                 <p className="text-2xl text-white ">
                   Reemplazando la derivada del método de Newton por un cociente
