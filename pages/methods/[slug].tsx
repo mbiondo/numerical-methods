@@ -11,16 +11,16 @@ const Methods: FunctionComponent<MethodsProps> = ({ slug }) => {
   const ComponentToRender: FunctionComponent =
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     require(`./../../content/methods/es/${slug}.mdx`).default
+
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const metaData = require(`./../../content/methods/es/${slug}.mdx`).metaData
+
   return (
     <>
       <Head>
-        <title>El método de bisección</title>
+        <title>{metaData.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta
-          name="description"
-          content="Basado en el teorema de valor intermedio, recibe el nombre de
-          bisección, o método de la búsqueda binaria."
-        />
+        <meta name="description" content={metaData.description} />
       </Head>
       <MethodTemplate>
         <ComponentToRender />
@@ -35,8 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     'newton-raphson',
     'fixed-point',
     'false-position',
-    'secant',
-    'index'
+    'secant'
   ]
   const paths = arr.map(slug => {
     return {
