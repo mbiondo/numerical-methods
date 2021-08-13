@@ -7,6 +7,7 @@ import 'tailwindcss/tailwind.css'
 import 'katex/dist/katex.min.css'
 import '../styles/global.css'
 import '../styles/pattern.css'
+import '../styles/home.css'
 
 import { MDXProvider } from '@mdx-js/react'
 const mdComponents = {}

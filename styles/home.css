@@ -1,0 +1,11 @@
+.pageSection {
+  @apply md:pl-44;
+}
+
+.pageSection h2 {
+  @apply w-full mb-6 text-4xl font-bold text-left text-white; 
+}
+
+.pageSection p {
+  @apply text-lg; 
+}

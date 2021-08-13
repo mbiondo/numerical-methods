@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Fade from 'react-reveal/Fade'
 import { v4 as uuidv4 } from 'uuid'
-
+import { BiCalculator } from "react-icons/bi";
 import { MethodList } from '../methods'
 
 const Home: FunctionComponent = () => {
@@ -26,16 +26,16 @@ const Home: FunctionComponent = () => {
         <meta name="description" content={metaData.description} />
       </Head>
       <div className="w-full pb-12 bg-gray-100 ">
-        <div className="fixed top-0 left-0 z-40 flex flex-col justify-center min-h-screen p-2 space-y-2 text-gray-500 bg-white shadow ">
+        <div className="top-0 left-0 z-40 flex flex-col justify-center space-y-2 text-gray-500 bg-white shadow md:fixed md:min-h-screen">
           <AnchorLink
-            className="w-full px-3 py-2 border-l-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
+            className="w-full px-3 py-2 border-r-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
             href="#introduccion"
           >
             Intro
           </AnchorLink>
           {MethodList.map(method => (
             <AnchorLink
-              className="w-full px-3 py-2 border-l-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
+              className="w-full px-3 py-2 border-r-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
               href={`#${method.id}`}
               key={uuidv4()}
             >
@@ -43,8 +43,9 @@ const Home: FunctionComponent = () => {
             </AnchorLink>
           ))}
           <Link href="/playground">
-            <a className="w-full px-3 py-2 border-l-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50">
+            <a className="flex items-center justify-between px-3 py-2 mx-2 font-bold text-pink-100 bg-pink-800 border-pink-800 rounded">
               Playground
+              <BiCalculator/>
             </a>
           </Link>
         </div>
@@ -61,14 +62,14 @@ const Home: FunctionComponent = () => {
             // eslint-disable-next-line @typescript-eslint/no-var-requires
             require(`../content/home/es/${method.id}.mdx`).default
           return (
-            <div
-              className={`relative flex items-center justify-center min-h-screen  bg-fixed bg-pink-800 pattern-grid-lg  ${rowClass(
+            <section
+              className={`pageSection relative flex items-center justify-center min-h-screen bg-fixed bg-pink-800 pattern-grid-lg text-pink-900  ${rowClass(
                 index
               )}`}
               id={method.id}
               key={uuidv4()}
             >
-              <div className="grid grid-cols-2 gap-2 px-6 pb-6 mx-auto bg-pink-900 shadow-md max-w-7xl">
+              <div className="grid gap-2 px-6 pb-6 mx-auto bg-pink-900 shadow-md md:grid-cols-2 max-w-7xl">
                 <Fade delay={400}>
                   <div className="mt-5">
                     <Image
@@ -79,10 +80,8 @@ const Home: FunctionComponent = () => {
                   </div>
                 </Fade>
                 <Fade>
-                  <div className="flex flex-col items-center justify-center p-6 text-left text-white">
-                    <div className="prose lg:prose-xl text-white">
-                      <MethodComponent />
-                    </div>
+                  <div className="flex flex-col items-center justify-center text-left text-white md:p-6">
+                    <MethodComponent />
                     <div className="flex justify-start w-full">
                       <Link href={`/methods/${method.id}`}>
                         <a className="inline-block p-3 px-8 mt-4 font-bold text-pink-900 duration-500 bg-white rounded-md cursor-pointer hover:bg-gray-300">
@@ -93,7 +92,7 @@ const Home: FunctionComponent = () => {
                   </div>
                 </Fade>
               </div>
-            </div>
+            </section>
           )
         })}
       </div>
