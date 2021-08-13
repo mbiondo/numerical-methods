@@ -5,34 +5,34 @@ import newtonRapshonImg from './public/images/newton_iteration.png'
 import secantImage from './public/images/secant_1.png'
 
 interface MethodItem {
-  id: string
+  slug: string
   name: string
   image: StaticImageData
 }
 
 export const MethodList: Array<MethodItem> = [
   {
-    id: 'bisection',
+    slug: 'bisection',
     name: 'Método de Bisección',
     image: bisectionImage
   },
   {
-    id: 'newton-raphson',
+    slug: 'newton-raphson',
     name: 'Newton Raphson',
     image: newtonRapshonImg
   },
   {
-    id: 'secant',
+    slug: 'secant',
     name: 'Método de la secante',
     image: secantImage
   },
   {
-    id: 'false-position',
+    slug: 'false-position',
     name: 'Método de la regla falsa',
     image: falsePositionImage
   },
   {
-    id: 'fixed-point',
+    slug: 'fixed-point',
     name: 'Método del punto fijo',
     image: fixedPointImage
   }

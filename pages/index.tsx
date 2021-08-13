@@ -9,7 +9,7 @@ import { BiCalculator } from 'react-icons/bi'
 import { MethodList } from '../methods'
 
 const Home: FunctionComponent = () => {
-  const IntroComponent =
+  const IntroComponent: FunctionComponent =
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     require(`../content/home/es/intro.mdx`).default
 
@@ -25,7 +25,7 @@ const Home: FunctionComponent = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={metaData.description} />
       </Head>
-      <div className="w-full pb-12 bg-gray-100 ">
+      <main className="w-full pb-12 bg-gray-100 ">
         <div className="top-0 left-0 z-40 flex flex-col justify-center space-y-2 text-gray-500 bg-white shadow md:fixed md:min-h-screen">
           <AnchorLink
             className="w-full px-3 py-2 border-r-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
@@ -36,7 +36,7 @@ const Home: FunctionComponent = () => {
           {MethodList.map(method => (
             <AnchorLink
               className="w-full px-3 py-2 border-r-2 focus:text-pink-800 focus:font-bold focus:border-pink-800 focus:bg-pink-50"
-              href={`#${method.id}`}
+              href={`#${method.slug}`}
               key={uuidv4()}
             >
               {method.name}
@@ -58,15 +58,15 @@ const Home: FunctionComponent = () => {
           </article>
         </section>
         {MethodList.map((method, index) => {
-          const MethodComponent =
+          const MethodContent: FunctionComponent =
             // eslint-disable-next-line @typescript-eslint/no-var-requires
-            require(`../content/home/es/${method.id}.mdx`).default
+            require(`../content/home/es/${method.slug}.mdx`).default
           return (
             <section
               className={`pageSection relative flex items-center justify-center min-h-screen bg-fixed bg-pink-800 pattern-grid-lg text-pink-900  ${rowClass(
                 index
               )}`}
-              id={method.id}
+              id={method.slug}
               key={uuidv4()}
             >
               <div className="grid gap-2 px-6 pb-6 mx-auto bg-pink-900 shadow-md md:grid-cols-2 max-w-7xl">
@@ -81,9 +81,9 @@ const Home: FunctionComponent = () => {
                 </Fade>
                 <Fade>
                   <div className="flex flex-col items-center justify-center text-left text-white md:p-6">
-                    <MethodComponent />
+                    <MethodContent />
                     <div className="flex justify-start w-full">
-                      <Link href={`/methods/${method.id}`}>
+                      <Link href={`/methods/${method.slug}`}>
                         <a className="inline-block p-3 px-8 mt-4 font-bold text-pink-900 duration-500 bg-white rounded-md cursor-pointer hover:bg-gray-300">
                           Ver detalle
                         </a>
@@ -95,7 +95,7 @@ const Home: FunctionComponent = () => {
             </section>
           )
         })}
-      </div>
+      </main>
     </>
   )
 }
