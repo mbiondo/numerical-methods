@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Fade from 'react-reveal/Fade'
 import { v4 as uuidv4 } from 'uuid'
-import { BiCalculator } from "react-icons/bi";
+import { BiCalculator } from 'react-icons/bi'
 import { MethodList } from '../methods'
 
 const Home: FunctionComponent = () => {
@@ -45,7 +45,7 @@ const Home: FunctionComponent = () => {
           <Link href="/playground">
             <a className="flex items-center justify-between px-3 py-2 mx-2 font-bold text-pink-100 bg-pink-800 border-pink-800 rounded">
               Playground
-              <BiCalculator/>
+              <BiCalculator />
             </a>
           </Link>
         </div>
