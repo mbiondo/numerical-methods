@@ -26,3 +26,7 @@ html {
 *::-webkit-scrollbar-thumb {
   @apply bg-pink-700;
 }
+
+.oddClass {
+  direction: rtl;
+}
