@@ -1,6 +1,6 @@
 import { parse, MathNode, derivative } from 'mathjs'
 
-export interface Trace {
+interface Trace {
   p: number
   err: number
   index: number
@@ -17,7 +17,7 @@ export interface EvaluateNewtonRaphsonResult {
   rawDEquation: string
 }
 
-export interface NewtonRaphsonParams {
+interface NewtonRaphsonParams {
   equation: string
   initial: number
   tolerate: number

@@ -1,6 +1,6 @@
 import { parse, MathNode } from 'mathjs'
 
-export interface Trace {
+interface Trace {
   a: number
   b: number
   c: number
@@ -20,7 +20,7 @@ export interface EvaluateBisectionResult {
   rawEquation: string
 }
 
-export interface BisectionParams {
+interface BisectionParams {
   equation: string
   a: number
   b: number

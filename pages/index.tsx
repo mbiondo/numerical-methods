@@ -16,7 +16,7 @@ const Home: FunctionComponent = () => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const metaData = require(`../content/home/es/intro.mdx`).metaData
 
-  const rowClass = (index: number) => (index % 2 === 0 ? 'oddClass' : '')
+  const rowClass = (index: number) => (index % 2 !== 0 ? 'oddClass' : '')
 
   return (
     <>

@@ -1,6 +1,6 @@
 import { parse, MathNode } from 'mathjs'
 
-export interface Trace {
+interface Trace {
   a: number
   b: number
   c: number
@@ -19,7 +19,7 @@ export interface EvaluateSecantResult {
   rawEquation: string
 }
 
-export interface SecantParams {
+interface SecantParams {
   equation: string
   a: number
   b: number

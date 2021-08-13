@@ -1,6 +1,6 @@
 import { parse, MathNode } from 'mathjs'
 
-export interface Trace {
+interface Trace {
   p: number
   err: number
   index: number
@@ -17,7 +17,7 @@ export interface EvaluateFixedPointResult {
   rawGEquation: string
 }
 
-export interface FixedPointParams {
+interface FixedPointParams {
   equation: string
   gEquation: string
   initial: number
